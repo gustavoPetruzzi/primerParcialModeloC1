@@ -15,5 +15,10 @@ int obtenerEspacioLibre(eProductos lista[],int cantidadItems);
 void pedirDatos(int* codigoProducto,float* importe, int* cantidad,char* descripcion, int pedirCodigo);
 eProductos cargarProducto(int codigoProducto, float importe, int cantidad,  char descripcion[]);
 int buscarPorCodigo(eProductos lista[], int cantidadItems, int codigo);
+float buscarMayorMenor(eProductos lista[], int length, int buscarMayor);
+void calculosImportes(eProductos lista[],  float* total, float* promedio, int* mayoresPromedio, int length);
+void ordenaPorCantidad(eProductos lista[], int length);
+void mostrarUno(eProductos producto);
+void mostrarProductos(eProductos lista[], int length);
 
 
