@@ -26,23 +26,19 @@ int main()
 
     do
     {
-        opcion = mostrarMenu("1-ALTAS\n2-MODIFICAR\n3-BAJA\n4-INFORMAR\n5-LISTAR\n6-SALIR", '1', '6');
+
+        opcion = mostrarMenu("1-ALTAS\n2-MODIFICAR\n3-BAJA\n4-INFORMAR\n5-LISTAR\n6-SALIR\n", '1', '6');
         system("cls");
         switch(opcion)
         {
             case '1':
                 indice = obtenerEspacioLibre(misproductos, MAX);
-                if(indice != -1)
+                auxInt = agregarProducto(misproductos, indice);
+                if(auxInt == 0)
                 {
-                    pedirDatos(&codigoProducto, &importe, &cantidad, descripcion,1);
-                    misproductos[indice] = cargarProducto(codigoProducto, importe, cantidad, descripcion);
-                    printf("producto cargado!\n");
-                    isEmpty = 0;
+                    printf("Producto Cargado!");
                 }
-                else
-                {
-                    printf("No hay mas lugar\n");
-                }
+                isEmpty = 0;
                 system("pause");
                 system("cls");
                 break;
@@ -83,18 +79,27 @@ int main()
                         }
                     }
                 }
+                system("pause");
+                system("cls");
                 break;
             case '4':
-                indice = buscarMayorMenor(misproductos, MAX, 1);
-                printf("Datos:\nCodigo: %d\nDescripcion: %s\nImporte: %.2f\nCantidad: %d\n", misproductos[indice].codigoProducto, misproductos[indice].descripcion, misproductos[indice].importe, misproductos[indice].cantidad);
-                calculosImportes(misproductos, &total, &promedio, &mayoresPromedio, MAX);
-                printf("Importe total: %.2f\n", total);
-                printf("Promedio: %.2f\n", promedio);
-                printf("Mayores promedio: %d\n", mayoresPromedio);
+                if(isEmpty== 0)
+                {
+                    indice = buscarMayorMenor(misproductos, MAX, 1);
+                    printf("Datos:\nCodigo: %d\nDescripcion: %s\nImporte: %.2f\nCantidad: %d\n", misproductos[indice].codigoProducto, misproductos[indice].descripcion, misproductos[indice].importe, misproductos[indice].cantidad);
+                    calculosImportes(misproductos, &total, &promedio, &mayoresPromedio, MAX);
+                    printf("Importe total: %.2f\n", total);
+                    printf("Promedio: %.2f\n", promedio);
+                    printf("Mayores promedio: %d\n", mayoresPromedio);
+                }
+                system("pause");
+                system("cls");
                 break;
             case '5':
                 ordenaPorCantidad(misproductos, MAX);
                 mostrarProductos(misproductos, MAX);
+                system("pause");
+                system("cls");
                 break;
             case '6':
                 break;

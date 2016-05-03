@@ -290,6 +290,26 @@ eProductos cargarProducto(int codigoProducto, float importe, int cantidad,  char
     return auxProductos;
 }
 
+int agregarProducto(eProductos lista[], int indice)
+{
+
+    int codigoProducto;
+    float importe;
+    int cantidad;
+    char descripcion[50];
+    if(indice != -1)
+        {
+            pedirDatos(&codigoProducto, &importe, &cantidad, descripcion,1);
+            lista[indice] = cargarProducto(codigoProducto, importe, cantidad, descripcion);
+            return 0;
+        }
+        else
+        {
+            printf("No hay mas lugar\n");
+            return -1;
+        }
+}
+
 
 /**
  * Obtiene el indice que coincide con el codigo pasado por parametro.
@@ -312,6 +332,21 @@ int buscarPorCodigo(eProductos lista[], int cantidadItems, int codigo)
         }
     }
     return index;
+}
+
+int modificar(eProductos lista[],int indice)
+{
+
+    indice = buscarPorCodigo(misproductos, MAX, codigoProducto);
+    if(indice!= -1)
+    {
+            pedirDatos(&codigoProducto, &importe, &cantidad, descripcion, 0);
+            misproductos[indice] = cargarProducto(codigoProducto, importe, cantidad, descripcion);
+    }
+    else
+    {
+        printf("No existe ningun producto con ese codigo\n!");
+    }
 }
 
 

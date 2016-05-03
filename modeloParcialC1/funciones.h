@@ -13,6 +13,7 @@ int getFloat(float* input,char message[],char eMessage[], float lowLimit, float 
 int getString(char* input,char message[],char eMessage[], int lowLimit, int hiLimit);
 int obtenerEspacioLibre(eProductos lista[],int cantidadItems);
 void pedirDatos(int* codigoProducto,float* importe, int* cantidad,char* descripcion, int pedirCodigo);
+int agregarProducto(eProductos lista[], int indice);
 eProductos cargarProducto(int codigoProducto, float importe, int cantidad,  char descripcion[]);
 int buscarPorCodigo(eProductos lista[], int cantidadItems, int codigo);
 float buscarMayorMenor(eProductos lista[], int length, int buscarMayor);
